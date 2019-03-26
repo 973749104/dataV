@@ -12,7 +12,6 @@
         <div class="a">1</div>
         <div class="b">2</div>
         <div class="c">3</div>
-        <div class="d">4</div>
       </div>
     </Header>
     <div class="main">
@@ -78,12 +77,17 @@ export default {
     }
   },
   created() {
-    // setInterval(this.slice, 1000)
-    this.slice()
+    setInterval(this.slice, 3000)
+    // this.slice()
+  },
+  destroyed() {
+
   },
   methods: {
     slice: function() {
-      this.mapData = mapDemo.filter((item, index)=> index < 10)
+      // 数据裁剪
+      // this.mapData = mapDemo.filter((item, index)=> index < 10)
+      this.mapData = mapDemo.slice(0, Math.round(Math.random() * 10))
     }
   }
 }
@@ -105,9 +109,9 @@ export default {
       background: saddlebrown;
       height: 100%;
       color: #Fff;
-      margin-right: 5px;
+      margin-right: 18px;
       &:first-child{
-        margin-left: 5px;
+        margin-left: 18px;
         background: sandybrown;
       }
       &:last-child{

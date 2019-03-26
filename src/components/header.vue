@@ -70,10 +70,10 @@ import { setInterval } from 'timers';
         height: auto;
       }
       .dataTab{
-        top: -60px;
-        margin: 0 30px;
+        top: -90px;
+        margin: 0 45px;
         position: relative;
-        height: 85px;
+        height: 95px;
       }
     }
     .time{

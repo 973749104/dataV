@@ -34,7 +34,7 @@
       const isFull = this.checkIsFull()
       if(!isFull) {
         this.isFullScreen = false
-        return
+        return false
       }
     })
    },
@@ -45,6 +45,7 @@
      }
    },
    methods: {
+    //  全屏方法
      fullScreen: function() {
        const content = document.querySelector('.content')
        const isFull = content.requestFullScreen || content.webkitRequestFullScreen || content.mozRequestFullScreen || content.msRequestFullscreen
@@ -55,8 +56,10 @@
           console.log('不能全屏')
        }
      },
+    //  检查是否全屏
      checkIsFull: function() {
-        const isFull = document.fullscreenEnabled || window.fullScreen || document.webkitIsFullScreen || document.msFullscreenEnabled
+        const isFull = document.fullscreenElement || window.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement || false
+        console.log(isFull)
         return isFull
      }
    }
@@ -77,6 +80,7 @@
       padding: 0;
       background: url(../assets/image/bg.png) no-repeat;
       background-size: 100% 100%;
+      overflow-y: hidden;
     }
     // 悬浮全屏按钮
     .fullBtn{

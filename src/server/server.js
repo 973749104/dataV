@@ -28,7 +28,7 @@ const CancelToken = axios.CancelToken
 axios.interceptors.request.use(config => {
     // 发起请求时，取消掉当前正在进行的相同请求
     if (pending[config.url]) {
-        pending[config.url] = cancel
+        cancel.f()
     }else{
         pending[config.url] = cancel
     }
